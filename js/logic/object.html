@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object</title>
+</head>
+
+<body>
+    <h1>object</h1>
+    <script>
+
+        let studentInfo = {
+            name: 'Rohit',
+            dob: '10-10-1992',
+            phone: '1234567890',
+            skills: ['JavaScript', 'Python', 'Java'], // array inside object
+            addressInfo: { // nested object
+                city: 'Jaipur',
+                state: 'Rajasthan',
+                country: 'India'
+            }
+        };
+        console.log(studentInfo['name']); // 1st way to access object property
+        console.log(studentInfo.name); // (dot notation) 2nd way to access object property
+        studentInfo['name'] = 'Mohit'; // update object property
+        studentInfo.name = 'Mohit'; // update object property
+        
+        studentInfo.skills[1]= "React"
+        studentInfo.skills.push("Node.js")
+        studentInfo.addressInfo.city = "Delhi";
+
+        studentInfo.email = "vishal@gmail.com" // add new property
+        delete studentInfo.phone;
+        console.log(studentInfo);
+        
+    </script>
+</body>
+
+</html>

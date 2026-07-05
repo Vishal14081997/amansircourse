@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+           1. Arithmetic Operators : +, -, *, /, %
+           2. Relational Operators : >, <, >=, <=, ==, !=
+           3. Logical Operators : &&, ||, !
+           4. unary operator : ++, -- ( pre and post fix )
+       */
+
+        // let a = 20;
+        // let b = 20;
+        // let c = a % b;
+        // let d = a !== b; //20 !== 20
+
+        // == : value check, type ignore
+        // === : both value and type check
+
+        // console.log("The value of c is : " + c);
+        // console.log("The value of d is :  " + d);
+
+        // Pre Increment (++a)
+
+        // let a = 5;
+        // console.log(++a); // 6
+        // console.log(a);   // 6
+
+        // Post Increment(a++)
+        // let a = 5;
+        // console.log(a++); // 5
+        // console.log(a);   // 6
+
+        // Pre Decrement(--a)
+        // let a = 5;
+        // console.log(--a); // 4
+        // console.log(a);   // 4
+
+        // Post Decrement(a--)
+        // let a = 5;
+        // console.log(a--); // 5
+        // console.log(a);   // 4
+
+
+        // logical and : &&
+        /*
+                T   T  :  T
+                T   F  :  F
+                F   T  :  F
+                F   F  :  F
+
+        */
+        // logical or : || 
+        /*
+                T   T  :  T
+                T   F  :  T
+                F   T  :  T
+                F   F  :  F
+
+        */
+
+        let g = 10 < 5 && 5 < 8 || 6 < 8 || 8 < 10;
+        //         F   &&   T   || T     || T
+        console.log('g ', g);
+    </script>
+</body>
+
+</html>
