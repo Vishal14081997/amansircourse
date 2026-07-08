@@ -41,23 +41,13 @@
         for (let i = arr2.length - 1; i >= 0; i--) {
             console.log('Inside for loop: index ' + (i) + ' value: ' + arr2[i]);
         }
+        // Pehle condition check hoti hai.
+        // Agar condition true hai tabhi loop chalega.
+        // Agar pehli baar hi false ho, to loop ek baar bhi nahi chalega.
 
-        {
-            console.log('inside block 1');
-            {
-                console.log('inside block 1.1');
-                {
-                    console.log('inside block 1.1.1');
-                }
-            }
-        }
-
-        {
-            console.log('inside block 2');
-        }
+        // --------------do while loop----------
 
         i = 0;
-        // do while loop
         do {
             console.log('Inside do while loop: index ' + i + ' value: ' + arr1[i]);
             i++; // increment
@@ -66,12 +56,16 @@
 
         // while → Pehle condition check hoti hai, phir code chalta hai.
         // do...while → Pehle code chalta hai, phir condition check hoti hai.
-        
+
         let j = 0;
         for (let j = 0; j < arr2.length; j++);
         {
             console.log('Inside for loop with semicolon: index ' + j + ' value: ' + arr2[j]);
         }
+
+        // Pehle code execute hota hai.
+        // Uske baad condition check hoti hai.
+        // Isliye do...while kam se kam ek baar zarur chalta hai.
 
         // -------------for in loop----------
 
