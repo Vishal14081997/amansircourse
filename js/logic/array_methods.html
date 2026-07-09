@@ -1,204 +1,229 @@
 <html>
-    <head>
-        <title>Array Methods</title>
-    </head>
-    <body>
-        <!-- <script src="array_methods.js"></script> -->
+
+<head>
+    <title>Array Methods</title>
+</head>
+
+<body>
+    <!-- <script src="array_methods.js"></script> -->
+    /*
+    some
+    reduce
+    filter
+    forEach
+    map
+
+    find
+    every
+    reduceRight
+
+    */
+
+    <script>
+        // arr1= [ 9, 4, 5, 6];
+        let products = [
+            {
+                id: 1,
+                name: "Nike Air Max",
+                price: 1199,
+                sizes: ["S", "M", "L", "XL"],
+                colors: {
+                    "S": ["black", "white"],
+                    "M": ["white"],
+                    "L": ["black"],
+                    "XL": ["black", "white"]
+                }
+            },
+            {
+                id: 2,
+                name: "Adidas Ultraboost",
+                price: 1399,
+                sizes: ["S", "M", "L", "XL"],
+                colors: {
+                    "S": ["blue", "white"],
+                    "M": ["blue"],
+                    "L": ["blue", "black"],
+                    "XL": ["black"]
+                }
+            }
+        ];
+        let firstProduct = products[0];
+        console.log(firstProduct);
+        // let userInputSize = prompt("enter your prefered size");
+        let userInputSize = "ls";
+        let productSizes = firstProduct.sizes;
+        var productFound = false;
+        for (let i = 0; i < productSizes.length; i++) {
+            console.log("size : ", productSizes[i]);
+            if (userInputSize == productSizes[i]) {
+                productFound = true;
+                break;
+            }
+        }
+        console.log("productFound : ", productFound);
+
+        // some() – Kya kam se kam ek element condition satisfy karta hai?
+        let found = productSizes.some(size => size == userInputSize);
+        console.log("found ", found);
+
+        // studentResult = [ 50, 98, 34, 90, 76, 19, 30, 45, 14, 33 ]
+        // find fail students: percentage < 33
+
+        let values = [50, 98, 34, 90, 76, 19, 30, 45, 14, 33];
+        // find values less than 33
+        // output : [19, 30, 14]
+
+        let result = [];
+        for (let value of values) {
+            if (value < 33) {
+                result.push(value);
+            }
+        }
+        console.log('result ', result);
+
+        let resultFilter = values.filter(value => value < 33);
+        console.log('resultFilter ', resultFilter);
+
+        // filter() - Naya array, Saare matching elements
+
+        let amount = [50, 90, 60, 50, 100, 50];
+        // output: sum = 200
+
+        let sum = 0;
+        for (let value of amount) {
+            sum += value;
+        }
+        console.log("sum : ", sum);
+
+        console.log('amount array ', amount);
+
+        // ----------- reduce -------------
+
+        let sumReduce = amount.reduce((acc, value) => {
+            console.log('acc ', acc);
+            console.log('value ', value);
+            return acc + value;// + value;
+        });
+        console.log('sumReduce : ', sumReduce);
+        console.log("amount array before forEach ", amount);
+        // acc - Accumulator
+        // curr - Current Value
+        // ----------forEach-------------
+
+        let amountForEach = amount.forEach((value, index) => {
+            return value + value;
+        });
+        console.log("amount array after forEach ", amount);
+        console.log('amountForEach ', amountForEach);
+
+        //---------- find---------
+        let data = [10, 45, 34, 45, 32]; // find: value > 30 && value < 40
+        // output : 34
+
+        // let findFirst = undefined;
+        let findFirst;
+        for (let value of data) {
+            if (value > 30 && value < 40) {
+                findFirst = value;
+                break;
+            }
+        }
+        console.log('findFirst ', findFirst);
+
+        let arr = [10, 45, 34, 45, 89, 32];
+        let ans = arr.find(value => value > 30 && value < 40);
+        console.log(ans);
+
+        // --------- find last-------------
+
+        let dataLast = [10, 45, 34, 45, 89, 32, 76, 48]; // find last: value > 30 && value < 40 
+        // output: 32
+        let findLast = undefined;
+        for (let value of dataLast) {
+            if (value > 30 && value < 40) {
+                findLast = value;
+            }
+        }
+        console.log('findLast ', findLast);
+
+        // let arr = [10, 45, 34, 45, 89, 32];
+        // let ans = arr.findLast(value => value > 30 && value < 40);
+        // console.log(ans);
+
+        // to check all values valid
+
+        let arr2 = [9, 10, 15, 20, 12, 26];
+        // check all values even, all even: true, found any odd : false
+
+        let allEven = true;
+        for (let value of arr2) {
+            if (value % 2 !== 0) {
+                allEven = false;
+                break;
+            }
+        }
+        console.log('allEven', allEven);
+
+        let evenEvery = arr2.every(num => num % 2 == 0);
+        console.log('evenEvery ', evenEvery)
+
+        console.log('date start ', Date.now());
+        console.time("Loop");
+        for (let i = 0; i < 90000; i++) {
+
+        }
+        console.log('date end ', Date.now());
+        console.timeEnd("Loop");
+        const numbers = [1, 2, 3];
+
+        const resultFlatMap = numbers.flatMap(num => [num, num * 3]);
+
+        // [
+        //     [1, 3],
+        //     [2, 6],
+        //     [3, 9]
+        // ]
+        // लेकिन flatMap() उसे flatten कर देता है:
+        // [1, 3, 2, 6, 3, 9]
+
+        console.log('resultFlatMap ', resultFlatMap);
+        // [1, 2, 2, 4, 3, 6]
+
+        let arrVal = [3, 5, 7];
+        console.log('arrVal ', arrVal);
+        // arr1 = [ 3, 5, 7]
+        // [ 9, 25, 49]
+        // output: [3, 9, 5, 25, 7, 49]
+
+        let arrFlat = [];
+        for (let value of arrVal) {
+            arrFlat.push(value);
+            arrFlat.push(value * value)
+        }
+        console.log('arrFlat', arrFlat);
+
+        let fruits = ["apple", "banana", "orange"];
+        const [index, value] = fruits.entries();
+        //console.log('index',index,' value ',value);
+
+        let students = ['aman', 'rohan'];
+        console.log('students ', students);
+        students = [...students, 'mohit'];
+        console.log('students ', students);
+
         /*
-            some
-            reduce
-            filter
-            forEach
-            map
-
-            find
-            every
-            reduceRight
-
+        Given an array of nested arrays: 
+        [[1, 2], [3, 4], [5, 6]], use an array method to
+         flatten it into a single array: [1, 2, 3, 4, 5, 6].
         */
 
-        <script>
-                // arr1= [ 9, 4, 5, 6];
-            let products = [
-                {
-                    id: 1,
-                    name: "Nike Air Max",
-                    price: 1199,
-                    sizes: ["S", "M", "L", "XL"],
-                    colors: {
-                        "S": ["black", "white"],
-                        "M": ["white"],
-                        "L": ["black"],
-                        "XL": ["black", "white"]
-                    }
-                },
-                {
-                    id: 2,
-                    name: "Adidas Ultraboost",
-                    price: 1399,
-                    sizes: ["S", "M", "L", "XL"],
-                    colors: {
-                        "S": ["blue", "white"],
-                        "M": ["blue"],
-                        "L": ["blue", "black"],
-                        "XL": ["black"]
-                    }
-                }
-            ];
-            let firstProduct = products[0];
-            console.log(firstProduct);
-            let userInputSize = prompt("enter your prefered size");
-            let productSizes = firstProduct.sizes;
-            var productFound = false;
-            for(let i=0; i< productSizes.length; i++){
-                console.log("size : ",productSizes[i]);
-                if(userInputSize == productSizes[i]){
-                    productFound = true;
-                    break;    
-                }
-            }
-            console.log("productFound : ",productFound);
-
-            // some() – Kya kam se kam ek element condition satisfy karta hai?
-            let found = productSizes.some(size => size == userInputSize);
-            console.log("found ",found);
-
-            // studentResult = [ 50, 98, 34, 90, 76, 19, 30, 45, 14, 33 ]
-            // find fail students: percentage < 33
-
-            let values = [ 50, 98, 34, 90, 76, 19, 30, 45, 14, 33 ];
-            // find values less than 33
-            // output : [19, 30, 14]
-
-            let result = [];
-            for(let value of values ){
-                if(value < 33)
-                {
-                  result.push(value);   
-                }
-            }
-            console.log('result ',result);
-
-            let resultFilter = values.filter(value => value < 33);
-            console.log('resultFilter ',resultFilter);
-           // filter() - Naya array, Saare matching elements
-
-            let amount = [ 50, 90, 60, 50, 100, 50 ];
-            // output: sum = 200
-
-            let sum = 0;
-            for(let value of amount){
-                sum += value;
-            }
-            console.log("sum : ",sum);
-
-            console.log('amount array ',amount);
-
-            // ----------- reduce -------------
-
-            let sumReduce = amount.reduce((acc, value) => {
-                console.log('acc ',acc);
-                console.log('value ',value); 
-                return acc + value;// + value;
-            });
-            console.log('sumReduce : ',sumReduce);
-            console.log("amount array before forEach ",amount);
-
-            // ----------forEach-------------
-
-            let amountForEach = amount.forEach((value, index) =>{
-                   return value + value;
-            });
-            console.log("amount array after forEach ",amount);
-            console.log('amountForEach ',amountForEach);
-
-            //---------- find----------
-            let data = [10, 45, 34, 45]; // find: value > 30 && value < 40
-            // output : 34
-
-            // let findFirst = undefined;
-            let findFirst ;
-            for(let value of data){
-                if(value > 30 && value < 40){
-                 findFirst = value;
-                 break;   
-                }
-            }
-            console.log('findFirst ',findFirst);
-
-            // --------- find last-------------
-            
-            let dataLast = [10, 45, 34, 45, 89, 32, 76, 48]; // find last: value > 30 && value < 40 
-            // output: 32
-            let findLast = undefined;
-            for(let value of dataLast)
-            {
-                if(value > 30 && value < 40)
-                {
-                 findLast = value;
-                }
-            }
-            console.log('findLast ',findLast);
-
-            // to check all values valid
-            let arr2 = [9, 10, 15, 20, 12, 26];
-            // check all values even, all even: true, found any odd : false
-            let allEven = true;
-            for(let value of arr2)
-            {
-                if(value % 2 !== 0)
-                {
-                  allEven = false;
-                  break;
-                }
-            }
-            console.log('allEven',allEven);
-            //
-            let evenEvery = arr2.every(num => num % 2 == 0);
-            console.log('evenEvery ',evenEvery)
-            console.log('date start ', new Date());
-            for(let i = 0; i < 90000; i++)
-            {
-
-            }
-            console.log('date end ', new Date());
-
-            const numbers = [1, 2, 3];
-
-            const resultFlatMap = numbers.flatMap(num => [num, num * 3]);
-
-            console.log('resultFlatMap ',resultFlatMap);
-            // [1, 2, 2, 4, 3, 6]
-
-            let arrVal = [ 3, 5, 7];
-            console.log('arrVal ',arrVal);
-            // arr1 = [ 3, 5, 7]
-            // [ 9, 25, 49]
-            // output: [3, 9, 5, 25, 7, 49]
-            let arrFlat = [];
-            for(let value of arrVal)
-            {
-                arrFlat.push(value);
-                arrFlat.push(value*value)
-            }
-            console.log('arrFlat',arrFlat);
-
-            let fruits = ["apple","banana","orange"];
-            const [index, value] = fruits.entries();
-            //console.log('index',index,' value ',value);
-
-            let students = ['aman', 'rohan'];
-            console.log('students ',students);
-            students = [... students, 'mohit'];
-            console.log('students ',students);
-
-            /*
-            Given an array of nested arrays: 
-            [[1, 2], [3, 4], [5, 6]], use an array method to
-             flatten it into a single array: [1, 2, 3, 4, 5, 6].
-            */
+        // ans.
+        // let arr = [[1, 2], [3, 4], [5, 6]];
+        // let result = arr.flat();
+        // console.log(result);
 
 
-        </script>
-    </body>
+    </script>
+</body>
+
 </html>
