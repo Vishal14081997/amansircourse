@@ -222,19 +222,6 @@
         // let result = arr.flat();
         // console.log(result);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
         //NOTE ternary operator ;
 
         let hasMember = false;
@@ -250,88 +237,115 @@
         // }
 
         //String interpolation //string template
-        const firstName = 'ritesh';
-        const fullName = `my name is ${firstName}`;
-
+        const firstname = 'ritesh';
+        const fullName = `my name is ${firstname}`
         console.log(fullName);
 
-        const companies = ['meta', 'netflix', 'google', 'ibm'];
+        //.............includes....................
 
-        //for of
+        const product = ["phone", "tv", "ac"]
+        let newProduct = "ac"
+        if (!product.includes(newProduct)) {
+            product.push(newProduct)
+        } else {
+            console.log("item already exists");
+        }
+        console.log(product);
 
-        for (let company of companies) {
-            console.log(company);
+        //....................slice()........................
+
+        // array.slice(startIndex ,endIndex)
+        // does not change original array , return  a new array
+        // startIndex ->  included 
+        // endIndex -> not included
+
+        const result2 = products.slice(1, 3);
+        console.log(result2);
+
+        //.....................splice()................
+
+        // Purpose: Add, remove, or replace elements.
+        // Changes the original array.
+        // Returns the removed elements.
+        const arr6 = [1, 2, 3, 4];
+
+        const removed = arr6.splice(1, 2);
+        console.log(removed);// [2,3]
+        console.log(arr);// [1,4]
+
+        const arr8 = [1, 2, 3, 4, 5];
+        console.log(arr8)
+        const splicedOutputt = arr8.splice(1);
+        console.log(splicedOutputt);
+
+
+        const movies = ['12th fail', 'spiderman', 'batman'];
+        const newMovie = 'black panther'
+        if (!movies.includes(newMovie)) {
+            movies.push(newMovie)
+        }
+        if (movies.length > 5) {
+            movies.pop()
         }
 
-        const movies = [
-            {
-                title: 'inception',
-                director: 'Christoper Nolan',
-                year: 2012
+        // indexof
+        const usernames = ['ritesh', 'utsav', 'aman'];
+        console.log(usernames.indexOf('ritesh'));
+
+        //at 
+        console.log(usernames.at(2));
+        //we pass the index of the element it returns the element
+
+        //concat
+        // it gives a new array doesn't mutate original array ;
+        const username2 = ['shubham', 'lakshit', 'azad', 'divyanshu'];
+        const concatOutput = usernames.concat(username2);
+        console.log(concatOutput);
+
+        //join converts the array into string accepts a separator value (for eg ' ' , -  , /)
+        const joinOutput = usernames.join(' ');
+        console.log(joinOutput);
+
+        const reversedArray = username2.reverse();
+        console.log(reversedArray);
+
+        // rest paramter (...) ;
+        //packs the remaining value of the array in a variable.
+        const companies = ['google', 'facbook', 'grras', 'meta', 'netflix'];
+        const [firstCompany, secondCompany, ...rest] = companies;
+        console.log(firstCompany);
+        console.log(rest);
+
+        //Object 
+        //destructuring
+        const mydetails = {
+            firstName: 'vishal',
+            address: {
+                state: 'rajasthan',
+                city: 'jaipur'
             },
-            {
-                title: 'Spiderman',
-                director: 'test',
-                year: 2012
-            },
-        ];
-
-        function getDirector(year) {
-            for (let movie of movies) {
-                console.log(movie);
-
-                if (movie.year === year) {
-                    return movie.title
-                }
-
-            }
-            return 'not valid movie';
         }
-        console.log(getDirector(2012));
+        const { firstName, address } = mydetails
+        console.log(mydetails);
+        console.log(firstName, address)
 
-        //for in 
+        const { firstName: fName, address: { state, city }, age = 24 } = mydetails;
+        console.log(fName, age, state)
 
-        for (let index in companies) {
-            console.log(companies[index])
+        const details = {
+            firstName: 'ritesh',
+            age: 2024 - 1997,
+            address: 'jaipur'
         }
+        const keys = Object.keys(details);
+        console.log(keys);
 
-        // const obj = {
-        //     firstName : 'ritesh',
-        //     age : 25 
-        // }
+        const values2 = Object.values(details);
+        console.log(values2);
 
-        // for(let keys in obj){
-        //     console.log(`${keys} : ${obj[keys]}`)
-        // }
-
-
-        // do while
-        // let count = 1 
-        // do{
-        // console.log(count) ;
-        // count++
-
-        // }while(count <= 5);
-
-        let confirmPassword = 'ritesh@123';
-        let password;
-
-        do {
-            password = prompt('enter the password');
-            if (confirmPassword !== password) {
-                alert('Invalid password please enter again')
-
-            }
-        } while (confirmPassword !== password);
-
-        alert('login successfull');
-
-
-        //prompt => 1.hi ,2. bye  , 3.leave 
-        // => switch case case 1,2,3 console.log(bye) console.log(hi);
-
-
-
+        
+      
+        
     </script>
 </body>
 
