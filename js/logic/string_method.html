@@ -31,6 +31,9 @@
 
         //NOTE indexOf
         console.log(str.indexOf('m', 1));
+        let strjava = "JavaScript";
+        console.log(strjava.indexOf("Python"));
+        // Agar value nahi milti to -1 return hota hai.
 
         //NOTE includes
         console.log(str.includes('my'));
@@ -38,18 +41,33 @@
         //NOTE slice
         console.log(str.slice(4, 1));
 
-        //NOTE substring
+        let str2 = "JavaScript";
+        console.log(str2.slice(0, 4));
+
+        //NOTE substring(Ye bhi slice jaisa hai.)
         console.log(str.substring(4, 1));
+
+        console.log(str2.substring(0, 4));
+
+        // Slice vs Substring
+        console.log(str2.slice(4, 1));//""
+        console.log(str2.substring(4, 1));//ava
+
         //NOTE replace
         console.log(str.replace('is', 'are'));
 
         //NOTE replaceAll
         console.log(str.replaceAll('is', 'are'));
 
-        //NOTE split
+        //NOTE split(String ko array me convert karta hai.)
         const newStr = 'we are learning js';
         const splitOutput = newStr.split(' ');
         console.log(splitOutput.reverse().join(' '));
+
+        // Reverse String
+        let str3 = "hello";
+        let reverse = str3.split("").reverse().join("");
+        console.log(reverse);
 
         //NOTE trim
         const trimString = '    my name     ';
@@ -65,6 +83,7 @@
         // '*****hello'
         const paddedOutputEnd = padstring.padEnd(10, '.');
         console.log(paddedOutputEnd);
+
         const paddedOutputStart = padstring.padStart(10, '*');
         console.log(paddedOutputStart);
 
