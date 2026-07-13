@@ -1,0 +1,89 @@
+<!-- dom - document object model
+Jab browser HTML file ko load karta hai, to wo HTML ko Tree Structure (Object) me convert kar deta hai. Isi ko DOM kehte hain.
+JavaScript isi DOM ki help se HTML ko Read, Update, Delete, aur Create kar sakti hai. -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="heading">welcome</h1>
+    <div id="box"></div>
+
+    <p class="text">One</p>
+    <p class="text">Two</p>
+    <p class="text">Three</p>
+
+    <input type="button" value="test" onclick="handleButtonClick()">
+    <button id="btn">Click</button>
+
+    <br><br>
+    <div style="background-color: gray; width: 400px; font-weight: bold;">
+        <input type="text" id="student_name" placeholder="student name" />
+        <br><br>
+        Male <input type="radio" name="gender" value="male">
+        Female <input type="radio" name="gender" value="female">
+        <br><br>
+
+        <div>
+            <button onclick="handleSaveClick()">Save</button>
+        </div>
+        <div>
+            Entered Student Name : <div id="form_student_name"> ? </div>
+        </div>
+    </div>
+
+    <script>
+        // const heading = document.getElementById("heading").innerHTML = "welcome back"
+        const heading = document.getElementById("heading").innerText = "hello"
+        document.getElementById("box").innerHTML = "<h1>hello vishal</h1>"
+
+        function handleButtonClick() {
+            document.getElementById("heading").style.color = "white"
+            document.getElementById("heading").style.background = "red"
+            document.getElementById("heading").style.fontSize = "24px"
+
+            for (let i = 0; i < document.getElementsByClassName("text").length; i++) {
+                document.getElementsByClassName("text")[i].textContent = "all change";
+            }
+
+        }
+        const data = document.getElementsByClassName("text")
+        for (let value of data) {
+            console.log(value);
+        }
+        const btn = document.getElementById("btn")
+        btn.addEventListener("click", function () {
+            alert("Button click")
+        })
+
+        const handleSaveClick = () => {
+            let studentName = document.getElementById("student_name").value
+            console.log(studentName);
+            document.getElementById("form_student_name").textContent = studentName;
+
+            const selectedRadio = document.querySelector('input[name="gender"]:checked')
+
+            if (studentName === "") {
+                alert("Please enter student name");
+                return;
+            }
+            if (selectedRadio) {
+                console.log(selectedRadio.value);
+            } else {
+                console.log("No radio button is selected");
+            }
+
+
+        }
+
+    </script>
+</body>
+
+</html>

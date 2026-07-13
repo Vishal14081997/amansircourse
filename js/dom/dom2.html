@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container"></div>
+    <div>
+        <input type="button" value="Add Tag" onclick="handleCreateElement()" />
+    </div>
+    <br>
+    <br>
+    <div>
+        <input type="button" value="Click" onclick="handleClicked()" />
+    </div>
+    <br>
+    <div> clicked : <span id="user_clicked"> 0 </span></div>
+    <script>
+        // localStorage  : its work on all tabs / browser window
+        // sessionStorage: its work only same tab
+        function handleCreateElement() {
+            let heading = document.createElement("h1")
+            heading.textContent = "hello world"
+            document.getElementById("container").appendChild(heading)
+        }
+
+        var count = 0;
+        function handleClicked() {
+            count++;
+            document.getElementById("user_clicked").innerHTML = count;
+            localStorage.setItem('count', count);
+            sessionStorage.setItem('count', count);
+        }
+        function dataFromStorage() {
+            count = localStorage.getItem("count");
+            document.getElementById("user_clicked").innerHTML = count
+        }
+        dataFromStorage()
+    </script>
+</body>
+
+</html>
