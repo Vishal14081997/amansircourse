@@ -17,9 +17,7 @@ function saveStudent() {
             name,
             course
         });
-
     }else{
-
         students[editIndex].name=name;
         students[editIndex].course=course;
         editIndex=-1;
