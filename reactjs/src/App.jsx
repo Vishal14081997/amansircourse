@@ -1,5 +1,5 @@
 // import React from 'react'
-// // import Navbar from './components/Navbar'
+// import Navbar from './components/Navbar'
 // import Child1 from './components/Child1'
 
 // const App = () => {
@@ -17,9 +17,7 @@
 // export default App
 
 
-
 // --------------------------------------------------
-
 
 
 // import React from 'react'
@@ -119,7 +117,7 @@
 //     useEffect(() => {
 //         fetchData()
 //         console.log("Use Effect called");
-        
+
 //     }, [count])
 //     return (
 //         <>
@@ -167,47 +165,87 @@
 
 // export default App
 
+
+// import React, { useState } from 'react'
+
+// const App = () => {
+//   const [x, setX] = useState(10);
+//   const [name, setName] = useState("Vishal");
+//   const [students, setStudents] = useState(["Sam", "Peter"]);
+
+//   function increase() {
+//     setX(x + 1);
+//   }
+//   function addStudent() {
+//     setStudents([...students, "Rahul"]);
+//   }
+
+//   return (
+//     <>
+//       <h1>{x}</h1>
+//       <button onClick={increase}>
+//         Increase
+//       </button>
+//       <h1>{name}</h1>
+//       <button onClick={() => setName("Rahul")}>
+//         Change Name
+//       </button>
+//       {students.map((item, index) => (
+//         <h2 key={index}>{item}</h2>
+//       ))}
+
+//       <button onClick={addStudent}>
+//         Add Student
+//       </button>
+
+
+
+//     </>
+//   )
+// }
+
+// export default App
+
+// useState React ka ek Hook hai jo component ke andar data (state) ko store aur update karne ke liye use hota hai. Jab state update hoti hai, React component automatically dubara render hota hai aur UI me latest value dikhai deti hai.
+
+
 import React, { useState } from 'react'
 
 const App = () => {
-  const [x, setX] = useState(10);
-  const [name, setName] = useState("Vishal");
-  const [students, setStudents] = useState(["Sam", "Peter"]);
 
-  function increase() {
-    setX(x + 1);
+  const [studentName, setStudentName] = useState("");
+  const [students, setStudents] = useState([]);
+
+  const handleChange = (e) => {
+    setStudentName(e.target.value);
   }
 
   function addStudent() {
-    setStudents([...students, "Rahul"]);
+    if (studentName === "") {
+      alert("Please Enter Student Name");
+      return;
+    }
+    setStudents([...students, studentName]); 
+    setStudentName(""); 
   }
-
   return (
     <>
-      <h1>{x}</h1>
-      <button onClick={increase}>
-        Increase
-      </button>
+      <input
+        type="text"
+        placeholder="Enter Student Name"
+        value={studentName}
+        onChange={handleChange}
+      />
 
-
-
-      <h1>{name}</h1>
-
-      <button onClick={() => setName("Rahul")}>
-        Change Name
+      <button onClick={addStudent}>
+        Add Student
       </button>
 
       {students.map((item, index) => (
         <h2 key={index}>{item}</h2>
       ))}
-
-      <button onClick={addStudent}>
-        Add Student
-      </button>
     </>
-  )
+  );
 }
 
-export default App
-
-// useState React ka ek Hook hai jo component ke andar data (state) ko store aur update karne ke liye use hota hai. Jab state update hoti hai, React component automatically dubara render hota hai aur UI me latest value dikhai deti hai.
+export default App;

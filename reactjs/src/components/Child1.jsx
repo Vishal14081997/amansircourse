@@ -1,18 +1,18 @@
-import React from 'react'
+// import React from 'react'
 
-const Child1 = (props) => {
-    console.log(props.heading);
+// const Child1 = (props) => {
+//     console.log(props.heading);
     
-  return (
-    <div className= {`${props.cardbg} flex flex-col w-50`}>
-        <h1 className='text-xl'>{props.heading}</h1>
-        <p className='text-gray-700'>{props.description}</p>
-        <button className='bg-blue-500 text-center text-white p-3px'>click me</button>
-    </div>
-  )
-}
+//   return (
+//     <div className= {`${props.cardbg} flex flex-col w-50`}>
+//         <h1 className='text-xl'>{props.heading}</h1>
+//         <p className='text-gray-700'>{props.description}</p>
+//         <button className='bg-blue-500 text-center text-white p-3px'>click me</button>
+//     </div>
+//   )
+// }
 
-export default Child1
+// export default Child1
 
 
 // --------------------------------------------------
