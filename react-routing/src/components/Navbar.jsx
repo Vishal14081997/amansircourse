@@ -11,54 +11,51 @@ function Navbar() {
           CodingLab
         </h1>
 
+
         {/* Menu */}
         <div className="flex items-center gap-10 text-white text-lg font-medium">
 
           <Link
             to="/"
-            className={({ isActive }) =>
-              isActive
-                ? "border-b-2 border-white pb-1"
-                : "hover:text-gray-200 transition"
-            }
+            className="hover:border-b-2 hover:border-white pb-1 transition"
           >
             Home
           </Link>
 
-          <Link
-            to="/services"
-            className={({ isActive }) =>
-              isActive
-                ? "border-b-2 border-white pb-1"
-                : "hover:text-gray-200 transition"
-            }
-          >
-            Services
-          </Link>
 
           <Link
-            to="/products"
-            className={({ isActive }) =>
-              isActive
-                ? "border-b-2 border-white pb-1"
-                : "hover:text-gray-200 transition"
-            }
+            to="/about"
+            className="hover:border-b-2 hover:border-white pb-1 transition"
           >
-            Products
+            About
           </Link>
+
 
           <Link
             to="/contact"
-            className={({ isActive }) =>
-              isActive
-                ? "border-b-2 border-white pb-1"
-                : "hover:text-gray-200 transition"
-            }
+            className="hover:border-b-2 hover:border-white pb-1 transition"
           >
             Contact Us
           </Link>
 
+
+          <Link
+            to="/login"
+            className="hover:border-b-2 hover:border-white pb-1 transition"
+          >
+            Login
+          </Link>
+
+
+          <Link
+            to="/signup"
+            className="hover:border-b-2 hover:border-white pb-1 transition"
+          >
+            Signup
+          </Link>
+
         </div>
+
 
         {/* Search Icon */}
         <button className="text-white text-2xl hover:scale-110 transition">
