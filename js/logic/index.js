@@ -54,12 +54,27 @@ console.log("hello vishal");
 // b . string()
 // let name = "Vishal";
 // c . boolean(true)
+// let isLogin = true;
+// let isAdmin = false;
+
+// console.log(isLogin);
+// console.log(isAdmin);
 // d . null
+// let data = null;
+// console.log(data);
 // let data = null;
 // e . undefiend
 // let age;
+// console.log(age);
+// let age;
 // f . symbol
+// Symbol एक unique value बनाता है।
+// अगर दोनों Symbol का text एक जैसा भी हो, फिर भी वे अलग होते हैं।
+// let id1 = Symbol("id");
+// let id2 = Symbol("id");
+// console.log(id1 === id2);
 // g . bigint
+// let bigNumber = 999999999999999999999999999999999n;
 // let num = 123456789123456789123456789n;
 
 // *********non premtive types  **********
@@ -82,9 +97,9 @@ console.log("hello vishal");
 // snake case -
 // const my_name = "vishal"
 
-let name  = "vishal"
-console.log(typeof name);
-document.write(typeof name , name)
+// let name = "vishal"
+// console.log(typeof name);
+// document.write(typeof name, name)
 
 
 
